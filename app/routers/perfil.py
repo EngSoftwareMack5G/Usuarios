@@ -5,7 +5,7 @@ import asyncpg
 
 from app.db.database import get_db_connection
 from app.db import crud
-from app.models.perfil import PerfilCreate, PerfilUpdate, PerfilResponse
+from app.models.perfil import PerfilCreate, PerfilUpdate, PerfilResponse, PerfilNome
 from app.models.token import TokenData
 from app.core.security import get_current_user # authorize_perfil_access não será mais usado diretamente aqui
 from app.core.config import settings
@@ -173,3 +173,17 @@ async def remover_perfil_usuario_logado( # Nome da função mais descritivo
     if not deleted:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Perfil não encontrado para o usuário autenticado")
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+@router.get("/nome/{email}", response_model=PerfilNome)
+async def obter_nome_por_email(
+    email: str,
+    conn: asyncpg.Connection = Depends(get_db_connection)
+):
+    """
+    Retorna apenas o nome do perfil associado ao e-mail fornecido.
+    Este endpoint é público e **não requer autenticação**.
+    """
+    perfil = await crud.get_perfil_by_email(conn, email)
+    if not perfil:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Perfil não encontrado para o e-mail informado")
+    return PerfilNome(nome=perfil['nome'])

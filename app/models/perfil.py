@@ -23,3 +23,6 @@ class PerfilResponse(PerfilInDBBase):
 
 class PerfilComFoto(PerfilInDBBase):
     foto: Optional[bytes] = None # Para uso interno, se necessário
+
+class PerfilNome(BaseModel):
+    nome: str
