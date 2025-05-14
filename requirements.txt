@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+asyncpg
+python-jose[cryptography]
+python-multipart
+passlib[bcrypt] # Para hash de senhas, embora não estejamos criando usuários/senhas aqui, é bom ter.
+                # python-jose usa para algumas funcionalidades criptográficas.
