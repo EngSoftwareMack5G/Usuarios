@@ -57,5 +57,5 @@ async def generate_test_token(email: EmailStr = FastAPIForm(...)):
     Endpoint de conveniência para gerar um token JWT para teste.
     **NÃO USE EM PRODUÇÃO.** O email fornecido será o 'username' no payload do token.
     """
-    access_token = create_access_token(data={"username": email})
+    access_token = create_access_token(data={"username": email, "type": "Mentorado"})
     return {"access_token": access_token, "token_type": "bearer", "email_in_token": email}
