@@ -44,6 +44,11 @@ A API utiliza as variáveis de ambiente para configurar a conexão com o banco d
 - `POSTGRES_PASSWORD`: A senha do usuário do banco de dados.
 - `POSTGRES_DB`: O nome do banco de dados.
 - `POSTGRES_PORT`: A porta do banco de dados.
+- `JWT_SECRET_KEY`: A chave secreta usada para assinar o token JWT.
+- `JWT_ALGORITHM`: O algoritmo usado para assinar o token JWT.
+- `ACCESS_TOKEN_EXPIRE_MINUTES`: O tempo de expiração do token JWT em minutos.
+- `MAX_IMAGE_SIZE`: O tamanho máximo permitido para a imagem do perfil em bytes.
+- `ALLOWED_IMAGE_TYPES`: Os tipos de imagem permitidos para upload do perfil.
 
 ## Imagem do perfil
 
