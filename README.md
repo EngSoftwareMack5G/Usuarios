@@ -49,7 +49,3 @@ A API utiliza as variáveis de ambiente para configurar a conexão com o banco d
 - `ACCESS_TOKEN_EXPIRE_MINUTES`: O tempo de expiração do token JWT em minutos.
 - `MAX_IMAGE_SIZE`: O tamanho máximo permitido para a imagem do perfil em bytes.
 - `ALLOWED_IMAGE_TYPES`: Os tipos de imagem permitidos para upload do perfil.
-
-## Imagem do perfil
-
-- `GET /perfil/imagem`: Retorna a imagem do perfil do usuário autenticado.
